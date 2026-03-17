@@ -1,6 +1,7 @@
 import hashlib
 import json
 import os
+import shutil
 from datetime import datetime
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -9,7 +10,9 @@ from urllib.parse import parse_qs, urlparse
 
 
 ROOT = Path(__file__).resolve().parent
-DATA_DIR = ROOT / "data" / "web_store"
+PROJECT_ROOT = ROOT.parent
+DATA_DIR = PROJECT_ROOT / "data" / "web_store"
+LEGACY_DATA_DIR = ROOT / "data" / "web_store"
 ACCOUNTS_FILE = DATA_DIR / "accounts.json"
 
 
@@ -22,6 +25,10 @@ def sha256(text: str) -> str:
 
 
 def ensure_storage() -> None:
+    # One-time migration: move data from legacy src/data to project-level data.
+    if not DATA_DIR.exists() and LEGACY_DATA_DIR.exists():
+        DATA_DIR.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copytree(LEGACY_DATA_DIR, DATA_DIR, dirs_exist_ok=True)
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     if not ACCOUNTS_FILE.exists():
         ACCOUNTS_FILE.write_text(json.dumps({"users": {}}, ensure_ascii=False, indent=2), encoding="utf-8")

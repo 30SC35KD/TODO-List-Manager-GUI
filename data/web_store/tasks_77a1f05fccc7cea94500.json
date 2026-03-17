@@ -32,12 +32,12 @@
       "title": "用AI进行软件测试",
       "content": "用AI测试软件，实现AI全流程参与项目",
       "ddl": "2026-03-18 10:32",
-      "completed": false,
-      "completedAt": null,
+      "completed": true,
+      "completedAt": "2026-03-17 16:03",
       "createdAt": "2026-03-17 09:33",
-      "updatedAt": "2026-03-17 09:33",
-      "reminder5Sent": false,
-      "reminderDueSent": false
+      "updatedAt": "2026-03-17 16:03",
+      "reminder5Sent": true,
+      "reminderDueSent": true
     },
     {
       "id": "581b1b7f9eaa44a491395dd340a90698",
@@ -53,5 +53,5 @@
       "reminderDueSent": false
     }
   ],
-  "updated_at": "2026-03-17 09:36"
+  "updated_at": "2026-03-17 16:28"
 }
