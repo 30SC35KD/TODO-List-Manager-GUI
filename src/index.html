@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlowDo - 待办事项管理器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-shape bg-shape-a"></div>
+  <div class="bg-shape bg-shape-b"></div>
+  <div class="grain-overlay"></div>
+
+  <main class="app-shell">
+    <section id="authView" class="auth-view">
+      <div class="auth-card">
+        <p class="auth-kicker">FlowDo Workspace</p>
+        <h1>待办事项管理器</h1>
+        <p class="auth-subtitle">多账户 · 父子任务 · 到期提醒</p>
+
+        <label class="field-label" for="authUsername">用户名</label>
+        <input id="authUsername" class="text-input" type="text" autocomplete="username" placeholder="请输入用户名">
+
+        <label class="field-label" for="authPassword">密码</label>
+        <input id="authPassword" class="text-input" type="password" autocomplete="current-password" placeholder="请输入密码">
+
+        <div class="auth-actions">
+          <button id="loginBtn" class="btn btn-primary">登录</button>
+          <button id="registerBtn" class="btn btn-secondary">创建账户</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="mainView" class="main-view hidden">
+      <header class="top-bar">
+        <div>
+          <p class="top-title">任务面板</p>
+          <p id="accountLabel" class="top-meta">当前账户：</p>
+        </div>
+        <div class="top-actions">
+          <button id="switchBtn" class="btn btn-ghost">切换账号</button>
+          <button id="logoutBtn" class="btn btn-ghost">退出登录</button>
+        </div>
+      </header>
+
+      <section id="taskList" class="task-list"></section>
+
+      <section id="composer" class="composer mode-create-parent">
+        <div class="composer-head">
+          <span class="status-dot"></span>
+          <span id="modeText">创建任务</span>
+        </div>
+
+        <input id="subjectInput" class="composer-input thin" type="text" placeholder="请输入任务主题">
+        <div class="ddl-line">
+          <input id="ddlInput" class="composer-input thin" type="text" readonly placeholder="请输入任务DDL">
+          <button id="pickDdlBtn" class="btn btn-secondary">选择DDL</button>
+        </div>
+        <textarea id="contentInput" class="composer-input large" placeholder="请输入任务内容"></textarea>
+
+        <div class="composer-actions">
+          <button id="cancelModeBtn" class="btn btn-ghost">取消</button>
+          <button id="submitTaskBtn" class="btn btn-primary">提交任务</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div id="ddlModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-panel">
+      <h3>设置任务DDL</h3>
+      <p class="modal-desc">左侧日期，右侧时间与时区</p>
+      <div class="ddl-picker-grid">
+        <div>
+          <label class="field-label" for="ddlDateInput">日期</label>
+          <input id="ddlDateInput" class="text-input" type="date">
+        </div>
+        <div>
+          <label class="field-label" for="ddlTimeInput">时间</label>
+          <input id="ddlTimeInput" class="text-input" type="time" step="60">
+          <p id="timezoneText" class="timezone-text"></p>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="cancelDdlBtn" class="btn btn-ghost">取消</button>
+        <button id="confirmDdlBtn" class="btn btn-primary">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="reminderModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-panel reminder-panel">
+      <h3>任务提醒</h3>
+      <div id="reminderBody" class="reminder-body"></div>
+      <div class="modal-actions">
+        <button id="closeReminderBtn" class="btn btn-primary">我知道了</button>
+      </div>
+    </div>
+  </div>
+
+  <template id="taskCardTemplate">
+    <article class="task-card">
+      <div class="task-main">
+        <div class="task-title-row">
+          <h3 class="task-title"></h3>
+          <span class="task-sub-count"></span>
+        </div>
+        <p class="task-time"></p>
+      </div>
+      <div class="task-actions"></div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

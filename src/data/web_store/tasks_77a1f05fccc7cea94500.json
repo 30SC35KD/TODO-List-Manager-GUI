@@ -1,0 +1,57 @@
+{
+  "tasks": [
+    {
+      "id": "3f4344ced35644bf9a98a1340b3f7529",
+      "parentId": null,
+      "title": "软件工程第一次作业",
+      "content": "实现一个带有图形用户界面的待办事项管理器，用于管理个人任务",
+      "ddl": "2026-04-13 12:00",
+      "completed": false,
+      "completedAt": null,
+      "createdAt": "2026-03-17 09:30",
+      "updatedAt": "2026-03-17 09:36",
+      "reminder5Sent": false,
+      "reminderDueSent": false
+    },
+    {
+      "id": "236e96d7ef3c4100b3ecbfb7ebbc9ed0",
+      "parentId": "3f4344ced35644bf9a98a1340b3f7529",
+      "title": "对软件进行人工测试",
+      "content": "通过亲自使用软件，对软件进行测试，测试其可用性",
+      "ddl": "2026-04-12 12:00",
+      "completed": false,
+      "completedAt": null,
+      "createdAt": "2026-03-17 09:32",
+      "updatedAt": "2026-03-17 09:32",
+      "reminder5Sent": false,
+      "reminderDueSent": false
+    },
+    {
+      "id": "2cfb9b6e8c7d456382591775d8ca7c1e",
+      "parentId": "3f4344ced35644bf9a98a1340b3f7529",
+      "title": "用AI进行软件测试",
+      "content": "用AI测试软件，实现AI全流程参与项目",
+      "ddl": "2026-03-18 10:32",
+      "completed": false,
+      "completedAt": null,
+      "createdAt": "2026-03-17 09:33",
+      "updatedAt": "2026-03-17 09:33",
+      "reminder5Sent": false,
+      "reminderDueSent": false
+    },
+    {
+      "id": "581b1b7f9eaa44a491395dd340a90698",
+      "parentId": "3f4344ced35644bf9a98a1340b3f7529",
+      "title": "撰写报告",
+      "content": "撰写AI使用报告",
+      "ddl": "2026-03-19 22:00",
+      "completed": false,
+      "completedAt": null,
+      "createdAt": "2026-03-17 09:36",
+      "updatedAt": "2026-03-17 09:36",
+      "reminder5Sent": false,
+      "reminderDueSent": false
+    }
+  ],
+  "updated_at": "2026-03-17 09:45"
+}
